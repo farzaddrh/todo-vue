@@ -21,7 +21,7 @@ export default {
     completingTodos(state, payload) {
       const completedItem = state.todos.find((todo) => todo.id === payload);
       completedItem.done = !completedItem.done;
-      console.log(state);
+      
     },
     removeTodo(state, payload) {
       const removedItem = state.todos.findIndex((todo) => todo.id === payload);
