@@ -1,14 +1,16 @@
 <template>
-    <div class="container">
+    <div class="container" :class="darkMode">
         <the-header></the-header>
         <base-cart>
-            <todo-list :todos="clickedBtn?dos:todos"></todo-list>
+            <todo-list :todos="dos"></todo-list>
             <div class="filter-todos">
-                <p>3 items remain</p>
-                <base-btn @click="filterTodos('all')">All</base-btn>
-                <base-btn @click="filterTodos('active')">Active</base-btn>
-                <base-btn @click="filterTodos('completed')">Completed</base-btn>
-                <base-btn>Clear Completed</base-btn>
+                <p class="itemsRemained">{{itemsRemained}} items left</p>
+                <div class="filter">
+                <base-btn :mode="filterTodo==='all'?'active':''" @click="showFilteredTodos('all')">All</base-btn>
+                <base-btn :mode="filterTodo==='active'?'active':''" @click="showFilteredTodos('active')">Active</base-btn>
+                <base-btn :mode="filterTodo==='completed'?'active':''"  @click="showFilteredTodos('completed')">Completed</base-btn>
+                </div>
+                <base-btn :mode="filterTodo==='clear'?'active':''" @click="showFilteredTodos('clear')">Clear Completed</base-btn>
 
             </div>
         </base-cart>
@@ -22,44 +24,41 @@ import TodoList from './TodoList.vue'
 
 export default {
     data(){
-    return{clickedBtn:null,dos:[]}
+    return{filterTodo:'all'}
      },
 
     components: {
         TheHeader,
         TodoList,
     },
+
     methods: {
-
-       filterTodos(btn){
-           console.log('check');
-           this.clickedBtn=btn
-           if(btn==='active') {this.dos=this.$store.getters['tDos/activeTodos']}
-           if(btn==='all'){this.dos= this.dos=this.$store.getters['tDos/todos']}
-           if(btn==='completed'){this.dos=this.todos.filter(t=>t.done===true)}
-           console.log(this.dos);
+       showFilteredTodos(btn){
+           this.filterTodo=btn
        }
-
-
     },
+
     computed: {
         todos() {
             return this.$store.getters['tDos/todos']
-        }
-        ,
+        },
 
-    },
-    // watch:{
-    //     clickedBtn(value){
-    //         console.log(value);
-    //         if(value==='active'){this.dos=this.$store.getters['tDos/activeTodos']}else if(value==='completed'){
-    //             this.dos=this.todos.filter(t=>t.done===true)
-    //         }else if (value==='all'){
-    //             this.dos=this.$store.getters['tDos/todos']
-    //         console.log(this.dos);
-    //         }
-    //     }
-    // }
+        dos(){
+            if(this.filterTodo==="active") return this.todos.filter(t=>t.done===false)
+            if(this.filterTodo==='completed') return this.todos.filter(t=>t.done===true)
+            if(this.filterTodo==='clear') return this.$store.getters['tDos/activeTodos']
+
+            return  this.todos
+        },
+        itemsRemained(){
+            return this.$store.getters['tDos/todos'].filter(t=>t.done===false).length
+        },
+        darkMode(){
+
+            return {dark:this.$store.getters.isDark}
+        }
+    }
+
 };
 </script>
 <style>
@@ -79,5 +78,27 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.itemsRemained{
+     color: #b3b4c0;
+     font-size: 1.5rem;
+     font-weight: 400;
+}
+.filter{
+    display: flex;
+    gap: 2rem;
+
+}
+/* ///////////////dark mode//////////// */
+.container.dark{
+    background: url("./../assets/images/bg-desktop-dark.jpg");
+   background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left top;
+    background-color: hsl(235, 21%, 11%);
+}
+.container.dark .itemsRemained{
+      color: #4d5066
 }
 </style>

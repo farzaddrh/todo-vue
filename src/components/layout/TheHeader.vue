@@ -2,12 +2,12 @@
     <header>
         <div class="title">
             <p class="title__heading">todo</p>
-            <div class="title__moon">
-                <img src="./../../assets/images/icon-moon.svg" alt="moon" />
+            <div class="title__moon" @click="showDarkMode" >
+                <!-- <img src="./../../assets/images/icon-moon.svg" alt="moon" /> -->
             </div>
-            <div class="title__sun">
+            <!-- <div class="title__sun">
                 <img src="i./../../assets/images/icon-sun.svg" alt="sun" />
-            </div>
+            </div> -->
         </div>
         <div class="add-todo">
             <div class="add-todo__icon-input"></div>
@@ -30,6 +30,11 @@ export default {
             const newTodo = { todo: this.todo, id: uniqid(), done: false }
             this.$store.dispatch('tDos/addTodo', newTodo)
             this.todo = ''
+        },
+        showDarkMode(){
+
+            this.$store.dispatch('showDarkMode')
+
         }
     }
 }
@@ -50,6 +55,12 @@ header {
 
 .title__moon {
     cursor: pointer;
+    height: 26px;
+    width: 26px;
+    background: url(./../../assets/images/icon-moon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
 .title__sun {
@@ -96,4 +107,24 @@ header {
     color: hsl(236, 9%, 61%);
 
 }
+
+/* /////////////////////Dark mode/////////////////////////*/
+    .container.dark .title__moon{
+      background: url(./../../assets/images/icon-sun.svg);
+
+}
+    .container.dark  #todo {
+                background-color: hsl(235, 24%, 19%);
+                color: #8f909a;
+            }
+
+     .container.dark  #todo::-webkit-input-placeholder {
+
+                color: #8f909a;
+
+            }
+     .container.dark .add-todo__icon-input{
+         border: 1px solid hsl(233, 14%, 35%);
+     }
+     
 </style>

@@ -27,13 +27,14 @@ export default {
 
       state.todos.splice(removedItem, 1);
     },
-    activeTodos(state) {
-      state.todos = state.todos.filter((todo) => todo.done === false);
+    clearCompletedTodos(state) {
+      const cleared = state.todos.filter((todo) => todo.done === false);
+      state.todos = cleared;
+      return state.todos;
     },
   },
   actions: {
     completingTodos(context, payload) {
-      console.log("sdkfjlskdf");
       context.commit("completingTodos", payload);
     },
     remove(context, payload) {
@@ -42,19 +43,20 @@ export default {
     addTodo(contex, payload) {
       contex.commit("addTodo", payload);
     },
-    activeTodos(contex) {
-      contex.commit("activeTodos");
+    clearCompletedTodos(context) {
+      context.commit("clearCompletedTodos");
     },
-    // activeTodos(contex) {
-    //   contex.commit("activeTodos");
-    // },
   },
   getters: {
     todos(state) {
       return state.todos;
     },
     activeTodos(state) {
-      return state.todos.filter((todo) => todo.done === false);
+      state.todos= state.todos.filter((todo) => todo.done === false);
+      return state.todos
+    },
+    completedTodos(state) {
+      return state.todos.filter((todo) => todo.done === true);
     },
   },
 };

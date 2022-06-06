@@ -1,6 +1,6 @@
 <template>
     <ul class="todo-list">
-        <todo-item v-for="todo in todos" :key="todo.id" :tdo="todo"></todo-item>
+        <todo-item v-for="todo in todos" :key="todo.id" :id='todo.id' :todo='todo.todo' :done='todo.done'></todo-item>
 
     </ul>
 </template>

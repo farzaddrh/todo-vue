@@ -16,4 +16,8 @@ export default {
     width: 50rem;
     margin: 0 auto;
 }
+/* /////dark mode/////////////////// */
+.container.dark .cart{
+     background-color: hsl(235, 24%, 19%);
+}
 </style>
