@@ -1,7 +1,7 @@
 <template>
 <keep-alive>
     <li class="todo-item">
-        <div @click="removeTodo" class="cross"></div><input type="checkbox" :id="id" class="check-item" ><label @click="completingTodo"
+        <div @click="removeTodo" class="cross"></div><input :checked='done'    type="checkbox" :id="id" class="check-item" ><label @click.prevent="completingTodo"
             class="label" :for='id'>{{ todo
             }}</label>
     </li>
@@ -12,12 +12,11 @@
 
 export default {
     props: ['id','done','todo'],
-
     methods: {
         completingTodo() {
 
-
             this.$store.dispatch('tDos/completingTodos', this.id)
+
         },
         removeTodo() {
 
@@ -25,6 +24,7 @@ export default {
         }
 
     },
+
 
 }
 </script>
@@ -164,4 +164,22 @@ export default {
                                 left: 3px;
 
                             }
+
+  /*//////////////////////////// respondive////////////////////////////// */
+  @media (max-width: 768px) {
+  .cross {
+    display: block;
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url('./../assets/images/icon-cross.svg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 100;
+    cursor: pointer;
+}}
 </style>

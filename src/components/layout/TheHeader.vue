@@ -3,11 +3,7 @@
         <div class="title">
             <p class="title__heading">todo</p>
             <div class="title__moon" @click="showDarkMode" >
-                <!-- <img src="./../../assets/images/icon-moon.svg" alt="moon" /> -->
             </div>
-            <!-- <div class="title__sun">
-                <img src="i./../../assets/images/icon-sun.svg" alt="sun" />
-            </div> -->
         </div>
         <div class="add-todo">
             <div class="add-todo__icon-input"></div>
@@ -126,5 +122,9 @@ header {
      .container.dark .add-todo__icon-input{
          border: 1px solid hsl(233, 14%, 35%);
      }
-     
+/* /////////////////////////responsive////////////////// */
+@media (max-width: 768px) {
+
+    header{width: 100%;}
+}
 </style>

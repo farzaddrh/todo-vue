@@ -14,12 +14,20 @@
 
             </div>
         </base-cart>
+        <base-cart>
+<div class="filter mobile-filter">
+                <base-btn :mode="filterTodo==='all'?'active':''" @click="showFilteredTodos('all')">All</base-btn>
+                <base-btn :mode="filterTodo==='active'?'active':''" @click="showFilteredTodos('active')">Active</base-btn>
+                <base-btn :mode="filterTodo==='completed'?'active':''"  @click="showFilteredTodos('completed')">Completed</base-btn>
+                </div>
+        </base-cart>
     </div>
 </template>
 <script>
 
 import TheHeader from "./layout/TheHeader.vue";
 import TodoList from './TodoList.vue'
+import BaseCart from './UI/BaseCart.vue';
 
 
 export default {
@@ -30,6 +38,7 @@ export default {
     components: {
         TheHeader,
         TodoList,
+        BaseCart,
     },
 
     methods: {
@@ -90,6 +99,13 @@ export default {
     gap: 2rem;
 
 }
+
+.mobile-filter{
+    margin-top: 2rem;
+    padding: 2rem;
+    justify-content: center;
+    display: none;
+}
 /* ///////////////dark mode//////////// */
 .container.dark{
     background: url("./../assets/images/bg-desktop-dark.jpg");
@@ -100,5 +116,28 @@ export default {
 }
 .container.dark .itemsRemained{
       color: #4d5066
+}
+/* ////////////////responsive///////////////////// */
+@media (max-width: 768px) {
+    .container{
+         background: url("./../assets/images/bg-mobile-light.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left top;
+    padding-inline: 2rem;
+    }
+    .filter{
+        display: none;
+
+    }
+    .mobile-filter{display: flex;}
+    /* dark mode */
+    .container.container.dark{
+      background: url("./../assets/images/bg-mobile-dark.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left top;
+    background-color: hsl(235, 21%, 11%);
+    }
 }
 </style>

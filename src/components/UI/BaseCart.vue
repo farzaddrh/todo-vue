@@ -20,4 +20,9 @@ export default {
 .container.dark .cart{
      background-color: hsl(235, 24%, 19%);
 }
+/* ////////////////////responsive//////////// */
+@media (max-width: 768px) {
+
+    .cart{width: 100%;}
+}
 </style>
