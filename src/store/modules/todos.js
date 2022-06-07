@@ -1,6 +1,7 @@
 import uniqid from "uniqid";
 export default {
   namespaced: true,
+
   state() {
     return {
       todos: [
@@ -14,50 +15,49 @@ export default {
       ],
     };
   },
+
   mutations: {
-    addTodo(state, payload) {
+    ADDTODO(state, payload) {
       state.todos.push(payload);
     },
-    completingTodos(state, payload) {
+
+    COMPLETINGTODOS(state, payload) {
       const completedItem = state.todos.find((todo) => todo.id === payload);
       completedItem.done = !completedItem.done;
-      
     },
-    removeTodo(state, payload) {
+
+    REMOVETODO(state, payload) {
       const removedItem = state.todos.findIndex((todo) => todo.id === payload);
 
       state.todos.splice(removedItem, 1);
     },
-    clearCompletedTodos(state) {
-      const cleared = state.todos.filter((todo) => todo.done === false);
-      state.todos = cleared;
-      return state.todos;
+
+    CLEARCOMPLETEDTODOS(state) {
+      state.todos = state.todos.filter((todo) => todo.done === false);
     },
   },
+
   actions: {
     completingTodos(context, payload) {
-      context.commit("completingTodos", payload);
+      context.commit("COMPLETINGTODOS", payload);
     },
+
     remove(context, payload) {
-      context.commit("removeTodo", payload);
+      context.commit("REMOVETODO", payload);
     },
+
     addTodo(contex, payload) {
-      contex.commit("addTodo", payload);
+      contex.commit("ADDTODO", payload);
     },
+
     clearCompletedTodos(context) {
-      context.commit("clearCompletedTodos");
+      context.commit("CLEARCOMPLETEDTODOS");
     },
   },
+
   getters: {
     todos(state) {
       return state.todos;
-    },
-    activeTodos(state) {
-      state.todos = state.todos.filter((todo) => todo.done === false);
-      return state.todos;
-    },
-    completedTodos(state) {
-      return state.todos.filter((todo) => todo.done === true);
     },
   },
 };
