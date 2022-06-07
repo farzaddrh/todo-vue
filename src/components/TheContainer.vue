@@ -41,7 +41,7 @@ import TodoList from './TodoList.vue'
 import BaseCart from './UI/BaseCart.vue';
 export default {
     data(){
-    return{filterTodo:'all'}
+         return{filterTodo:'all'}
      },
 
     components: {
@@ -121,13 +121,13 @@ export default {
 /* ///////////////dark mode//////////// */
     .container.dark{
         background: url("./../assets/images/bg-desktop-dark.jpg");
-    background-repeat: no-repeat;
+        background-repeat: no-repeat;
         background-size: contain;
         background-position: left top;
         background-color: hsl(235, 21%, 11%);
 
         .itemsRemained{
-        color: #4d5066
+             color: #4d5066
             }
     }
 /* ////////////////responsive///////////////////// */

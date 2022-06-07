@@ -14,9 +14,9 @@
     }
 /* /////dark mode/////////////////// */
     .container.dark{
-        
+
         .cart{
-        background-color: hsl(235, 24%, 19%);
+             background-color: hsl(235, 24%, 19%);
             }
         }
 /* ////////////////////responsive//////////// */

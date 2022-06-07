@@ -16,6 +16,7 @@
 
 <script>
 import uniqid from "uniqid";
+
 export default {
     data() {
         return { todo: '' }
@@ -23,7 +24,6 @@ export default {
 
     methods: {
         addTodo() {
-
             if (!this.todo) return
             const newTodo = { todo: this.todo, id: uniqid(), done: false }
             this.$store.dispatch('tDos/addTodo', newTodo)

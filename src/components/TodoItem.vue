@@ -16,6 +16,7 @@ export default {
         completingTodo() {
             this.$store.dispatch('tDos/completingTodos', this.todo.id)
         },
+
         removeTodo() {
             this.$store.dispatch('tDos/remove', this.todo.id)
         }
@@ -118,7 +119,8 @@ export default {
 
 /* ///////////////////dark mode//////////////// */
 
-    .container.dark{
+    .container.dark {
+
         .todo-item {
                         border-color: hsl(233, 14%, 35%);
 
@@ -147,7 +149,6 @@ export default {
                                         background: hsl(233, 14%, 35%);
                                         width: 25px;
                                         height: 25px;
-
                                     }
 
                                     &:hover:before {
@@ -159,7 +160,6 @@ export default {
                                         height: 21px;
                                         top: 2px;
                                         left: 4px;
-
                                     }
 
                                     &::after {
@@ -168,9 +168,7 @@ export default {
                                         background: #25273c;
                                         top: 1px;
                                         left: 3px;
-
                                     }
-
                             }
                         }
 
