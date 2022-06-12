@@ -1,11 +1,11 @@
 <template>
     <ul class="todo-list">
-        <todo-item v-for="todo in todos" :key="todo.id"  :todo='todo'></todo-item>
+        <todo-item v-for="todo in todos" :key="todo.id" :todo='todo'></todo-item>
     </ul>
 </template>
 
 <script>
-import TodoItem from './TodoItem.vue'
+import TodoItem from '@/components/TodoItem.vue'
 export default {
     components: { TodoItem },
     props: ['todos']

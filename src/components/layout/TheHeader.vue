@@ -9,7 +9,7 @@
         <div class="add-todo">
             <div class="add-todo__icon-input"></div>
 
-            <input @keydown.enter="addTodo" type="text" name="todo" id="todo" placeholder="Create a new to do..."  v-model="todo">
+            <input @keydown.enter="addTodo" type="text" name="todo" id="todo" placeholder="Create a new to do..." v-model="todo">
         </div>
     </header>
 </template>
@@ -52,7 +52,7 @@ export default {
             cursor: pointer;
             height: 26px;
             width: 26px;
-            background: url(./../../assets/images/icon-moon.svg);
+            background: url(@/assets/images/icon-moon.svg);
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center center;
@@ -104,7 +104,7 @@ export default {
 /* /////////////////////Dark mode/////////////////////////*/
     .container.dark{
         .title__moon{
-             background: url(./../../assets/images/icon-sun.svg);
+             background: url(@/assets/images/icon-sun.svg);
             }
 
         .add-todo{

@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import todos from "./modules/todos.js";
+import todos from "@/store/modules/todos.js";
 
 export default createStore({
   modules: { tDos: todos },

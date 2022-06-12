@@ -38,7 +38,7 @@ export default {
             right: 2rem;
             top: 50%;
             transform: translateY(-50%);
-            background-image: url('./../assets/images/icon-cross.svg');
+            background-image: url('@/assets/images/icon-cross.svg');
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -52,7 +52,7 @@ export default {
 
             &:checked+label::after {
                 background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-                background-image: url('./../assets/images/icon-check.svg');
+                background-image: url('@/assets/images/icon-check.svg');
                 background-repeat: no-repeat;
                 background-size: auto;
                 background-position: center center;
@@ -127,7 +127,7 @@ export default {
                         .check-item {
                             &:checked+label::after {
                                 background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-                                background-image: url('./../assets/images/icon-check.svg');
+                                background-image: url('@/assets/images/icon-check.svg');
                                 background-repeat: no-repeat;
                                 background-size: auto;
                                 background-position: center center;
@@ -185,7 +185,7 @@ export default {
         right: 2rem;
         top: 50%;
         transform: translateY(-50%);
-        background-image: url('./../assets/images/icon-cross.svg');
+        background-image: url('@/assets/images/icon-cross.svg');
         background-position: center center;
         background-size: cover;
         background-repeat: no-repeat;

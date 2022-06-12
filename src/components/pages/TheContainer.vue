@@ -10,25 +10,30 @@
                 <p class="itemsRemained">{{itemsRemained}} items left</p>
 
                 <div class="filter">
-                        <base-btn :mode="filterTodo==='all'?'active':''" @click="showFilteredTodos('all')">All</base-btn>
+                        <base-btn :mode="filterTodo === 'all' ? 'active' : ''"
+                         @click="showFilteredTodos('all')">All</base-btn>
 
-                        <base-btn :mode="filterTodo==='active'?'active':''" @click="showFilteredTodos('active')">Active</base-btn>
+                        <base-btn :mode="filterTodo === 'active' ? 'active' : ''" @click="showFilteredTodos('active')">Active</base-btn>
 
-                        <base-btn :mode="filterTodo==='completed'?'active':''"  @click="showFilteredTodos('completed')">Completed</base-btn>
+                        <base-btn :mode="filterTodo === 'completed' ? 'active' : ''"  @click="showFilteredTodos('completed')">Completed</base-btn>
                 </div>
 
-                <base-btn :mode="filterTodo==='clear'?'active':''" @click="showFilteredTodos('clear')">Clear Completed</base-btn>
+                <base-btn :mode="filterTodo === 'clear' ?'active' : ''"
+                @click="showFilteredTodos('clear')">Clear Completed</base-btn>
 
               </div>
         </base-cart>
 
         <base-cart>
                 <div class="filter mobile-filter">
-                    <base-btn :mode="filterTodo==='all'?'active':''" @click="showFilteredTodos('all')">All</base-btn>
+                    <base-btn :mode="filterTodo === 'all' ? 'active' : ''"
+                    @click="showFilteredTodos('all')">All</base-btn>
 
-                    <base-btn :mode="filterTodo==='active'?'active':''" @click="showFilteredTodos('active')">Active</base-btn>
+                    <base-btn :mode="filterTodo === 'active' ? 'active' : ''"
+                    @click="showFilteredTodos('active')">Active</base-btn>
 
-                    <base-btn :mode="filterTodo==='completed'?'active':''"  @click="showFilteredTodos('completed')">Completed</base-btn>
+                    <base-btn :mode="filterTodo === 'completed' ?'active' : ''"
+                     @click="showFilteredTodos('completed')">Completed</base-btn>
                 </div>
         </base-cart>
     </div>
@@ -36,9 +41,9 @@
 
 <script>
 
-import TheHeader from "./layout/TheHeader.vue";
-import TodoList from './TodoList.vue'
-import BaseCart from './UI/BaseCart.vue';
+import TheHeader from "@/components/layout/TheHeader.vue";
+import TodoList from '@/components/TodoList.vue'
+import BaseCart from '@/components/UI/BaseCart.vue';
 export default {
     data(){
          return{filterTodo:'all'}
@@ -63,14 +68,14 @@ export default {
         },
 
         dos(){
-            if(this.filterTodo==="active") return this.todos.filter(t=>t.done===false)
-            if(this.filterTodo==='completed') return this.todos.filter(t=>t.done===true)
+            if(this.filterTodo === "active") return this.todos.filter(t=>t.done===false)
+            if(this.filterTodo ===' completed') return this.todos.filter(t=>t.done===true)
 
             return  this.todos
         },
 
         itemsRemained(){
-            return this.$store.getters['tDos/todos'].filter(t=>t.done===false).length
+            return this.$store.getters['tDos/todos'].filter(t=>t.done === false).length
         },
 
         darkMode(){
@@ -86,7 +91,7 @@ export default {
         min-height: 100vh;
         position: relative;
         background-color: white;
-        background: url("./../assets/images/bg-desktop-light.jpg");
+        background: url("@/assets/images/bg-desktop-light.jpg");
         background-repeat: no-repeat;
         background-size: contain;
         background-position: left top;
@@ -120,7 +125,7 @@ export default {
     }
 /* ///////////////dark mode//////////// */
     .container.dark{
-        background: url("./../assets/images/bg-desktop-dark.jpg");
+        background: url("@/assets/images/bg-desktop-dark.jpg");
         background-repeat: no-repeat;
         background-size: contain;
         background-position: left top;
@@ -133,7 +138,7 @@ export default {
 /* ////////////////responsive///////////////////// */
     @media (max-width: 768px) {
         .container{
-            background: url("./../assets/images/bg-mobile-light.jpg");
+            background: url("@/assets/images/bg-mobile-light.jpg");
             background-repeat: no-repeat;
             background-size: contain;
             background-position: left top;
@@ -149,7 +154,7 @@ export default {
 
         /* dark mode */
     .container.dark{
-            background: url("./../assets/images/bg-mobile-dark.jpg");
+            background: url("@/assets/images/bg-mobile-dark.jpg");
             background-repeat: no-repeat;
             background-size: contain;
             background-position: left top;
